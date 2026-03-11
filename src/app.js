@@ -20,4 +20,12 @@ app.use('/api/auth', authRouter);
 app.use('/api/accounts', accountRouter);
 app.use('/api/transactions', transactionRouter);
 
+
+/**
+ * Dummy route to test server is running
+ */
+app.get('/', (req, res) => {
+    res.send('Server is running');
+})
+
 module.exports = app;
