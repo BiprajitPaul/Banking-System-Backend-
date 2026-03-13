@@ -528,6 +528,50 @@ curl http://localhost:3000/api/accounts/balance/<accountId> \
 
 ---
 
+## 🖥 Frontend (React + Vite)
+
+A complete frontend is available in the `frontend/` folder with these pages:
+
+- Login
+- Register
+- Dashboard
+- Accounts
+- Transfer Money
+- Transaction History (paginated)
+
+### Run Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The Vite dev server runs on `http://localhost:5173` and proxies API calls to `http://localhost:3000`.
+
+### Run Backend + Frontend Together
+
+Terminal 1 (backend):
+
+```bash
+npm run dev
+```
+
+Terminal 2 (frontend):
+
+```bash
+cd frontend
+npm run dev
+```
+
+### API Notes
+
+- Frontend base URL is `/api` (via Vite proxy).
+- Authentication uses JWT + cookie support (`withCredentials: true`).
+- For account creation, frontend uses `POST /api/accounts/create` (current backend route).
+
+---
+
 ## 👤 Author
 
 

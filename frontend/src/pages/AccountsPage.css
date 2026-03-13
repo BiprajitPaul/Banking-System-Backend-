@@ -1,0 +1,38 @@
+.accounts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.accounts-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.accounts-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accounts-table th,
+.accounts-table td {
+  text-align: left;
+  padding: 0.78rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accounts-table th {
+  color: #9db0cb;
+  font-size: 0.9rem;
+}
+
+.accounts-table td {
+  color: var(--text-main);
+  font-size: 0.92rem;
+}
+
+.account-id-cell {
+  color: #cbd7ea;
+}

@@ -10,7 +10,7 @@ const accountController = require("../controllers/account.controller")
  * - Protected Route
  */
 
-router.post("/", authMiddleware.authMiddleware, accountController.accountCreate)
+router.post("/create", authMiddleware.authMiddleware, accountController.accountCreate)
 
 
 /**

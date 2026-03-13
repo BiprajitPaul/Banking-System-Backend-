@@ -1,4 +1,5 @@
 const accountModel = require("../models/account.model")
+const userModel = require("../models/user.model")
 
 async function accountCreate(req,res){
 
@@ -12,9 +13,17 @@ async function accountCreate(req,res){
 }
 
 async function getUserAccounts(req,res){
-    const accounts = await accountModel.find({
-        user : req.user._id
-    })
+    // Check if the logged-in user is a system user
+    const fullUser = await userModel.findById(req.user._id).select("+systemUser")
+    
+    let query = {};
+    if (!fullUser.systemUser) {
+        // Regular user: only return their own accounts
+        query.user = req.user._id;
+    }
+    // System user: query is empty {}, so it returns ALL accounts
+
+    const accounts = await accountModel.find(query)
     res.status(200).json({
         accounts
     })
